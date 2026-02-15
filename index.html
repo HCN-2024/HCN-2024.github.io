@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="your name, academic, mathematics, topology">
+    <meta name="description" content="Your academic homepage inspired by Allen Hatcher's style.">
+    <title>Your Name · Academic Homepage</title>
+    <!-- Font Awesome 6 (free) for subtle icons – you can remove if not needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ----- Allen Hatcher style color palette ----- */
+        :root {
+            --bg-page: #ece5ff;
+            --border-deep: #680530;      /* dark plum border */
+            --header-bg: #680530;         /* outer header background */
+            --header-inner-bg: #8490d1;   /* light blueish */
+            --section-title-bg: #8490d1;  /* same as inner header */
+            --section-bg: #c8bdff;         /* light purple for section backgrounds */
+            --card-bg: #dbceff;            /* softer lavender for cards/entries */
+            --link-normal: #be0e14;
+            --link-visited: #7c0307;
+            --link-active: #ff0000;
+            --text-dark: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            font-family: 'Times New Roman', Times, serif;  /* classic academic look */
+            color: var(--text-dark);
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        /* main container – mimics the outer table width */
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 2px solid var(--border-deep);
+            background-color: var(--bg-page); /* outer background, but inside we use sections */
+        }
+
+        /* ----- header (mimics the nested table) ----- */
+        .header-outer {
+            background-color: var(--header-bg);
+            padding: 8px; /* like cellpadding */
+            border-bottom: 2px solid var(--border-deep);
+        }
+        .header-inner {
+            background-color: var(--header-inner-bg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 25px;
+            border: 1px solid var(--border-deep); /* subtle inner border */
+        }
+        .header-text h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.2em;
+            color: #000; /* black, but original uses default */
+        }
+        .header-text h3 {
+            font-size: 1.3rem;
+            font-weight: normal;
+            margin: 8px 0 12px;
+        }
+        .header-text .email-note {
+            font-style: italic;
+            font-size: 1rem;
+            margin-top: 10px;
+            border-top: 1px dashed var(--border-deep);
+            padding-top: 10px;
+        }
+        .header-image .photo-placeholder {
+            width: 180px;
+            height: 180px;
+            background-color: #b0b8d9;  /* neutral greyish to match SL2.gif background */
+            border: 2px solid var(--border-deep);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #333;
+            text-transform: uppercase;
+        }
+        /* optional: if you replace with actual image, make it fit */
+        .header-image img {
+            width: 180px;
+            height: auto;
+            border: 2px solid var(--border-deep);
+        }
+
+        /* ----- general section style (replaces table rows) ----- */
+        .section {
+            margin: 0; /* sections touch each other with borders */
+            border-bottom: 2px solid var(--border-deep);
+            background-color: var(--section-bg);
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .section-title {
+            background-color: var(--section-title-bg);
+            padding: 8px 15px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            border-bottom: 2px solid var(--border-deep);
+            color: #000;
+        }
+        .section-content {
+            padding: 15px 20px;
+            background-color: var(--section-bg);
+        }
+
+        /* cards for books / projects (like the individual entries) */
+        .project-card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-deep);
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .project-card:last-child {
+            margin-bottom: 0;
+        }
+        .card-image {
+            flex-shrink: 0;
+            width: 100px;
+            height: 140px;
+            background-color: #b8b2d0;
+            border: 1px solid var(--border-deep);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #2c2c2c;
+            text-align: center;
+            padding: 5px;
+        }
+        .card-image i {
+            font-size: 2.5rem;
+            color: var(--border-deep);
+        }
+        .card-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .card-text p {
+            margin-bottom: 8px;
+        }
+        .card-text a {
+            color: var(--link-normal);
+            text-decoration: none;
+        }
+        .card-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* lists for papers, etc. */
+        .paper-list {
+            list-style: none;
+            margin-left: 0;
+        }
+        .paper-list li {
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--border-deep);
+        }
+        .paper-list li:last-child {
+            border-bottom: none;
+        }
+        .paper-list a {
+            color: var(--link-normal);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .paper-list a:hover {
+            text-decoration: underline;
+        }
+        .paper-detail {
+            font-size: 0.95rem;
+            color: #2a2a2a;
+            margin-left: 20px;
+        }
+
+        /* two-column style for "Other things" if needed */
+        .two-col {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .two-col ul {
+            flex: 1 1 200px;
+            list-style: square;
+            margin-left: 20px;
+        }
+        .two-col li {
+            margin-bottom: 6px;
+        }
+        .two-col a {
+            color: var(--link-normal);
+            text-decoration: none;
+        }
+        .two-col a:hover {
+            text-decoration: underline;
+        }
+
+        /* standard link colors */
+        a:link {
+            color: var(--link-normal);
+        }
+        a:visited {
+            color: var(--link-visited);
+        }
+        a:active {
+            color: var(--link-active);
+        }
+
+        /* horizontal line like original */
+        hr.hatcher-hr {
+            border: 1px solid var(--border-deep);
+            margin: 20px 0 10px;
+        }
+
+        /* footer / misc */
+        .footer-note {
+            background-color: var(--section-bg);
+            padding: 12px 20px;
+            border-top: 2px solid var(--border-deep);
+            text-align: left;
+            font-size: 0.95rem;
+        }
+        .footer-note a {
+            color: var(--link-normal);
+        }
+
+        /* responsive: on small screens, stack card image */
+        @media (max-width: 650px) {
+            .project-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-image {
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- ##### HEADER ##### -->
+    <div class="header-outer">
+        <div class="header-inner">
+            <div class="header-text">
+                <h1>Your Name</h1>
+                <h3><i class="fas fa-envelope" style="color: #680530;"></i>  email@yourdomain.com  |  <i class="fas fa-map-marker-alt" style="color: #680530;"></i>  University, Department</h3>
+                <div class="email-note">
+                    <i class="fas fa-pencil-alt"></i>  Note: I am currently active in research and open to collaboration. 
+                    The best way to reach me is via email. If I do not respond quickly, I am probably absorbed in a problem.
+                </div>
+            </div>
+            <div class="header-image">
+                <!-- replace with your own photo or keep as placeholder -->
+                <div class="photo-placeholder">
+                    <i class="fas fa-user-graduate fa-3x"></i>
+                </div>
+                <!-- if you have an image: <img src="yourphoto.jpg" alt="your name"> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ##### BOOKS / PROJECTS SECTION (like Hatcher's "Book Projects") ##### -->
+    <div class="section">
+        <div class="section-title" id="projects">
+            <i class="fas fa-book-open" style="margin-right: 10px;"></i> Projects / Books
+        </div>
+        <div class="section-content">
+
+            <!-- project card 1 -->
+            <div class="project-card">
+                <div class="card-image">
+                    <i class="fas fa-book fa-3x"></i>
+                </div>
+                <div class="card-text">
+                    <h3>Project Title One</h3>
+                    <p>A short description of this project, perhaps a book or a long-term writing. 
+                    This is a graduate-level monograph on a fascinating topic. It can be downloaded 
+                    electronically. <a href="#">More information →</a></p>
+                </div>
+            </div>
+
+            <!-- project card 2 -->
+            <div class="project-card">
+                <div class="card-image">
+                    <i class="fas fa-code-branch fa-3x"></i>
+                </div>
+                <div class="card-text">
+                    <h3>Computational Tool / Library</h3>
+                    <p>Open-source software for computations in algebraic topology or related fields. 
+                    Includes documentation and examples. <a href="#">GitHub repository →</a></p>
+                </div>
+            </div>
+
+            <!-- project card 3 – in progress -->
+            <div class="project-card">
+                <div class="card-image">
+                    <i class="fas fa-pen-fancy fa-3x"></i>
+                </div>
+                <div class="card-text">
+                    <h3>In Preparation: Monograph</h3>
+                    <p>This unfinished draft covers advanced topics. A preliminary version is available 
+                    here, but beware that it's incomplete. <a href="#">Download draft (PDF) →</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ##### COURSE NOTES / LECTURES ##### -->
+    <div class="section">
+        <div class="section-title" id="courses">
+            <i class="fas fa-chalkboard-teacher"></i> Course Notes
+        </div>
+        <div class="section-content">
+            <ul class="paper-list">
+                <li><a href="#">Advanced Topics in Topology</a> <span class="paper-detail">(Spring 2025, lecture notes, 150 pages)</span></li>
+                <li><a href="#">Introduction to Algebraic Topology</a> <span class="paper-detail">(exercises and solutions, updated 2024)</span></li>
+                <li><a href="#">Point‑Set Topology: A Concise Approach</a> <span class="paper-detail">(course notes for undergraduates)</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ##### PAPERS / PREPRINTS ##### -->
+    <div class="section">
+        <div class="section-title" id="papers">
+            <i class="fas fa-file-alt"></i> Papers & Preprints
+        </div>
+        <div class="section-content">
+
+            <h3 style="margin-bottom: 10px; font-size: 1.6rem; border-left: 6px solid var(--border-deep); padding-left: 12px;">Preprints</h3>
+            <ul class="paper-list">
+                <li><a href="#">A new approach to stable homology of moduli spaces</a> (with J. Collaborator). <span class="paper-detail">arXiv:2501.12345, submitted.</span></li>
+                <li><a href="#">On the classification of knotted surfaces in 4‑space</a> <span class="paper-detail">53 pages, posted March 2025.</span></li>
+            </ul>
+
+            <h3 style="margin: 25px 0 10px; font-size: 1.6rem; border-left: 6px solid var(--border-deep); padding-left: 12px;">Published (since 2020)</h3>
+            <ul class="paper-list">
+                <li><a href="#">The topology of configuration spaces on graphs</a> (with A. Student). <span class="paper-detail">Journal of Topology 17 (2024), 101–135.</span></li>
+                <li><a href="#">Diffeomorphism groups of 3‑manifolds with boundary</a> <span class="paper-detail">Geometry & Topology 28 (2023), 2201–2258.</span></li>
+                <li><a href="#">Homological stability for automorphism groups of free groups</a> (with K. Vogtmann). <span class="paper-detail">Annals of Mathematics 197 (2022), 1–78.</span></li>
+            </ul>
+
+            <!-- older / updates (like Hatcher's "Updates of older papers") -->
+            <h3 style="margin: 25px 0 10px; font-size: 1.5rem; border-left: 6px solid var(--border-deep); padding-left: 12px;">Older papers / revisions</h3>
+            <ul class="paper-list">
+                <li><a href="#">Triangulations of surfaces – revised version</a> <span class="paper-detail">(original 1991, updated 2023) PDF</span></li>
+                <li><a href="#">Spaces of incompressible surfaces (updated)</a> <span class="paper-detail">(1976 / 2022) PDF</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ##### OTHER THINGS (talks, photos, etc.) ##### -->
+    <div class="section">
+        <div class="section-title" id="other">
+            <i class="fas fa-ellipsis-h"></i> Other Things
+        </div>
+        <div class="section-content">
+            <div class="two-col">
+                <ul>
+                    <li><i class="fas fa-chart-line"></i> <a href="#">Slides: Stable homology of mapping class groups</a> (Conference 2024)</li>
+                    <li><i class="fas fa-chart-pie"></i> <a href="#">Poster: Cohomology of SO(n) – visualised</a> (PDF)</li>
+                    <li><i class="fas fa-camera"></i> <a href="#">Photos from the 2023 Topology Festival</a></li>
+                </ul>
+                <ul>
+                    <li><i class="fas fa-list"></i> <a href="#">Recommended books in topology (updated 2025)</a></li>
+                    <li><i class="fas fa-tools"></i> <a href="#">Useful scripts and data files</a></li>
+                    <li><i class="fab fa-github"></i> <a href="#">GitHub @yourusername</a></li>
+                </ul>
+            </div>
+
+            <!-- a small extra block like Hatcher's "Pictures of stable homotopy groups of spheres" -->
+            <div style="background-color: var(--card-bg); border: 2px solid var(--border-deep); padding: 15px; margin-top: 20px;">
+                <i class="fas fa-image" style="margin-right: 8px;"></i> <strong><a href="#" style="font-size: 1.2rem;">Pictures of stable homotopy groups of spheres</a></strong> – a visualisation project.
+            </div>
+        </div>
+    </div>
+
+    <!-- ##### SLIDES / TALKS (optional extra) ##### -->
+    <div class="section">
+        <div class="section-title" id="talks">
+            <i class="fas fa-presentation"></i> Recent Talks
+        </div>
+        <div class="section-content">
+            <ul class="paper-list">
+                <li><a href="#">“Madsen‑Weiss via scanning”</a> – Luminy, June 2024 (slides)</li>
+                <li><a href="#">“A survey of 3‑manifold classification”</a> – Cornell Topology Festival 2023 (video & slides)</li>
+                <li><a href="#">“Diffeomorphism groups after 50 years”</a> – 60th Birthday Conference for Someone, 2025</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ##### FOOTER with extra links (like photos of Renwick Brook) ##### -->
+    <div class="footer-note">
+        <i class="fas fa-tree"></i> <a href="#">Personal photo gallery</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <i class="fas fa-rss"></i> <a href="#">RSS feed</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <i class="fas fa-envelope"></i> <a href="#">email</a>
+        <br>
+        <span style="font-size: 0.9rem; opacity: 0.7;">Template styled after Allen Hatcher's homepage. Last updated February 2026.</span>
+    </div>
+
+</div> <!-- .page -->
+</body>
+</html>
