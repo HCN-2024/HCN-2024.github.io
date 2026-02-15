@@ -1,453 +1,313 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="your name, academic, mathematics, topology">
-    <meta name="description" content="Your academic homepage inspired by Allen Hatcher's style.">
-    <title>HCN · Academic Homepage(Hatcher style)</title>
-    <!-- Font Awesome 6 (free) for subtle icons – you can remove if not needed -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* ----- Allen Hatcher style color palette ----- */
-        :root {
-            --bg-page: #ece5ff;
-            --border-deep: #680530;      /* dark plum border */
-            --header-bg: #680530;         /* outer header background */
-            --header-inner-bg: #8490d1;   /* light blueish */
-            --section-title-bg: #8490d1;  /* same as inner header */
-            --section-bg: #c8bdff;         /* light purple for section backgrounds */
-            --card-bg: #dbceff;            /* softer lavender for cards/entries */
-            --link-normal: #be0e14;
-            --link-visited: #7c0307;
-            --link-active: #ff0000;
-            --text-dark: #000000;
-        }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  
+  <meta name="keywords" content="algebraic topology">
 
-        body {
-            background-color: var(--bg-page);
-            font-family: 'Times New Roman', Times, serif;  /* classic academic look */
-            color: var(--text-dark);
-            line-height: 1.5;
-            padding: 20px;
-        }
+  
+  <meta name="description" content="A downloadable textbook in algebraic topology"><title>Allen Hatcher's Homepage</title>
+  
 
-        /* main container – mimics the outer table width */
-        .page {
-            max-width: 1200px;
-            margin: 0 auto;
-            border: 2px solid var(--border-deep);
-            background-color: var(--bg-page); /* outer background, but inside we use sections */
-        }
+  
+  
+  <script language="JavaScript">
+<!--
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
 
-        /* ----- header (mimics the nested table) ----- */
-        .header-outer {
-            background-color: var(--header-bg);
-            padding: 8px; /* like cellpadding */
-            border-bottom: 2px solid var(--border-deep);
-        }
-        .header-inner {
-            background-color: var(--header-inner-bg);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 25px;
-            border: 1px solid var(--border-deep); /* subtle inner border */
-        }
-        .header-text h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 0.2em;
-            color: #000; /* black, but original uses default */
-        }
-        .header-text h3 {
-            font-size: 1.3rem;
-            font-weight: normal;
-            margin: 8px 0 12px;
-        }
-        .header-text .email-note {
-            font-style: italic;
-            font-size: 1rem;
-            margin-top: 10px;
-            border-top: 1px dashed var(--border-deep);
-            padding-top: 10px;
-        }
-        .header-image .photo-placeholder {
-            width: 180px;
-            height: 180px;
-            background-color: #b0b8d9;  /* neutral greyish to match SL2.gif background */
-            border: 2px solid var(--border-deep);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: #333;
-            text-transform: uppercase;
-        }
-        /* optional: if you replace with actual image, make it fit */
-        .header-image img {
-            width: 180px;
-            height: auto;
-            border: 2px solid var(--border-deep);
-        }
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
 
-        /* ----- general section style (replaces table rows) ----- */
-        .section {
-            margin: 0; /* sections touch each other with borders */
-            border-bottom: 2px solid var(--border-deep);
-            background-color: var(--section-bg);
-        }
-        .section:last-child {
-            border-bottom: none;
-        }
-        .section-title {
-            background-color: var(--section-title-bg);
-            padding: 8px 15px;
-            font-size: 1.8rem;
-            font-weight: bold;
-            border-bottom: 2px solid var(--border-deep);
-            color: #000;
-        }
-        .section-content {
-            padding: 15px 20px;
-            background-color: var(--section-bg);
-        }
+function MM_jumpMenuGo(selName,targ,restore){ //v3.0
+  var selObj = MM_findObj(selName); if (selObj) MM_jumpMenu(targ,selObj,restore);
+}
+//-->
+  </script>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head><body style="background-color: rgb(236, 229, 255);" alink="#ff0000" link="#be0e14" vlink="#7c0307">
+<table border="2" bordercolor="#680530" cellpadding="8" cellspacing="2" height="520" width="100%">
 
-        /* cards for books / projects (like the individual entries) */
-        .project-card {
-            background-color: var(--card-bg);
-            border: 2px solid var(--border-deep);
-            padding: 15px 20px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-        }
-        .project-card:last-child {
-            margin-bottom: 0;
-        }
-        .card-image {
-            flex-shrink: 0;
-            width: 100px;
-            height: 140px;
-            background-color: #b8b2d0;
-            border: 1px solid var(--border-deep);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            color: #2c2c2c;
-            text-align: center;
-            padding: 5px;
-        }
-        .card-image i {
-            font-size: 2.5rem;
-            color: var(--border-deep);
-        }
-        .card-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-        .card-text p {
-            margin-bottom: 8px;
-        }
-        .card-text a {
-            color: var(--link-normal);
-            text-decoration: none;
-        }
-        .card-text a:hover {
-            text-decoration: underline;
-        }
+  <tbody>
+    <tr bgcolor="#680530">
+      <td colspan="2" bordercolor="#663333" height="227">
+      <table border="0" cellpadding="8" cellspacing="0" height="200" width="100%">
+        <tbody>
+          <tr>
+            <td bgcolor="#8490d1" height="180" width="78%">
+            <h1>Allen Hatcher</h1>
+            <h3><img src="pagegifs/add.gif" alt="email address" width="213" height="23"></h3>
+            <p>Note: I have retired from teaching and advising students but am still active in research and writing. The best way to contact me is via email. If I do not respond in a timely fashion it is because I have nothing useful or definite to say.<br>              
+                <br>            
+            </p></td>
+            <td align="right" bgcolor="#8490d1" width="22%"><img src="pagegifs/SL2.gif" align="middle" border="1" height="180" width="181"></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr bgcolor="#aed4ff">
+      <td bordercolor="#680530" bgcolor="#c8bdff" nowrap="nowrap" valign="top" width="26%"><b><font size="+1"><a href="#anchor1772800">Book
+Projects:</a></font></b></td>
+      <td bordercolor="#680530" bgcolor="#c8bdff" nowrap="nowrap" valign="top" width="74%">
+      <ul>
+        <li><b><a href="#ATI">Algebraic Topology</a></b> </li>
+        <li><a href="#VBKT"><b>Vector Bundles and K-Theory</b></a> </li>
+        <li><a href="#SSAT"><b>Spectral Sequences in Algebraic Topology</b></a>
+        </li>
+        <li><a href="#TN"><b>Topology of Numbers</b></a> </li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor="#c8bdff" height="30" valign="top"><strong><font color="#c30000" size="+1">Course Notes:</font></strong></td>
+      <td bgcolor="#c8bdff" height="30" valign="top">
+      <ul>
+        <li><strong><a href="3M/3Mdownloads.html">Basic 3-Manifold
+Topology</a></strong></li>
+        <li><a href="Top/Topdownloads.html"><strong>Introductory
+Point-Set Topology</strong></a></li>
+      </ul>
+      </td>
+    </tr>
+    <tr bgcolor="#c8bdff">
+      <td colspan="2" height="30" valign="top"><b><font size="+1"><a href="#papers">Papers</a></font></b></td>
+    </tr>
+    <tr>
+      <td bgcolor="#c8bdff" height="50" nowrap="nowrap" valign="top" width="26%"><b><font color="#c30000" size="+1">Other Things:</font></b></td>
+      <td bgcolor="#c8bdff" height="50" valign="top">
+      <ul>
+        <li><b><a href="stemfigs/stems.pdf">Pictures of stable
+homotopy groups of spheres</a></b> </li>
+        <li><a href="SO/SO.html"><strong>Pictures of the cohomology of
+SO(n)</strong></a> </li>
+        <li><a href="Other/topologybooks.pdf"><strong>List of
+recommended books in Topology</strong></a> (from 2003, needs updating) </li>
+        <li><b><a href="Other/otherbooks.html">Books by other authors</a></b>
+        </li>
+      </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-        /* lists for papers, etc. */
-        .paper-list {
-            list-style: none;
-            margin-left: 0;
-        }
-        .paper-list li {
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 1px dashed var(--border-deep);
-        }
-        .paper-list li:last-child {
-            border-bottom: none;
-        }
-        .paper-list a {
-            color: var(--link-normal);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        .paper-list a:hover {
-            text-decoration: underline;
-        }
-        .paper-detail {
-            font-size: 0.95rem;
-            color: #2a2a2a;
-            margin-left: 20px;
-        }
+<p><a name="anchor1772800"></a>
+<table border="1" bordercolor="#680530" cellpadding="3" cellspacing="1" height="25" width="100%">
+  <tbody>
+    <tr>
+      <td bgcolor="#8490d1" height="27" nowrap="nowrap" width="100%"><font size="+2">Book Projects</font></td>
+    </tr>
+  </tbody>
+</table>
 
-        /* two-column style for "Other things" if needed */
-        .two-col {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        .two-col ul {
-            flex: 1 1 200px;
-            list-style: square;
-            margin-left: 20px;
-        }
-        .two-col li {
-            margin-bottom: 6px;
-        }
-        .two-col a {
-            color: var(--link-normal);
-            text-decoration: none;
-        }
-        .two-col a:hover {
-            text-decoration: underline;
-        }
+<table bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" border="1" bordercolor="#680530" cellpadding="6" cellspacing="1" height="50" width="100%">
+  <tbody>
+    <tr>
+      <td bgcolor="#dbceff" height="150">
+      <h3><img src="AT/ATcover.jpg" usemap="#ATdownloadMap" align="left" border="1" height="127" hspace="10" vspace="5" width="88"><a name="ATI"></a>Algebraic
+Topology</h3>
+     <map name="ATdownloadMap"><area shape="rect" coords="4,4,85,126" href="AT/ATpage.html" alt="Alg Top Book Info" title="Alg Top Book Info">
+      </map>
+<p>This book, published in 2002, is a beginning graduate-level  textbook on algebraic
+topology from a fairly classical point of view.  To find out more  or to download it in electronic form, <a href="AT/ATpage.html">follow this link to the download page</a>.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-        /* standard link colors */
-        a:link {
-            color: var(--link-normal);
-        }
-        a:visited {
-            color: var(--link-visited);
-        }
-        a:active {
-            color: var(--link-active);
-        }
+<table bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" border="1" bordercolor="#680530" cellpadding="6" cellspacing="1" height="50" width="100%">
+  <tbody>
+    <tr>
+      <td bgcolor="#dbceff" height="150">
+      <h3><img src="VBKT/VBKTcover.jpg" usemap="#VBKTpageMap" align="left" border="1" height="127" hspace="10" vspace="5" width="88">
+      <map name="VBKTpageMap"><area shape="rect" coords="5,4,84,125" href="VBKT/VBpage.html" alt="VBKT Info Page" title="VBKT Info Page">
+      </map>
+      <a name="VBKT"></a>Vector Bundles and K-Theory</h3>
+      <p>This unfinished book is intended to be a fairly short introduction to topological K-theory, starting with the necessary background material on vector bundles and including also basic material on characteristic classes. For further information or to download the part of the book that is written, go to <a href="VBKT/VBpage.html">the download page</a>. </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-        /* horizontal line like original */
-        hr.hatcher-hr {
-            border: 1px solid var(--border-deep);
-            margin: 20px 0 10px;
-        }
+<table bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" border="1" bordercolor="#680530" cellpadding="6" cellspacing="1" height="50" width="100%">
+  <tbody>
+    <tr>
+      <td bgcolor="#dbceff" height="150">
+      <h3><img src="SSAT/SScover.jpg" align="left" border="1" height="127" hspace="10" vspace="5" width="88">
+      <a name="SSAT"></a>Spectral Sequences</h3>
+      <p>I have now returned to an earlier plan of having this material be an extra chapter of the Algebraic Topology book, rather than a separate book. The current version of this chapter is <a href="AT/SSpage.html">here</a>. Its main focus is the Serre spectral sequence and its applications, but there is also some coverage of the Adams spectral sequence and, more briefly, a few other spectral sequences. In case you would like to see the older version that was planned as a separate book, this can be found on <a href="SSAT/SSATpage.html">this page</a>. </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-        /* footer / misc */
-        .footer-note {
-            background-color: var(--section-bg);
-            padding: 12px 20px;
-            border-top: 2px solid var(--border-deep);
-            text-align: left;
-            font-size: 0.95rem;
-        }
-        .footer-note a {
-            color: var(--link-normal);
-        }
+<table bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" border="1" bordercolor="#680530" cellpadding="6" cellspacing="1" height="50" width="100%">
+  <tbody>
+    <tr>
+      <td bgcolor="#dbceff" height="50">
+      <h3><img src="TN/TNcover.jpg" align="left" border="1" height="127" hspace="10" vspace="5" width="88">
+      <a name="TN" id="TN"></a>Topology of Numbers</h3>
+      <p>This is an undergraduate-level introduction to elementary number
+theory from a somewhat geometric point of view, focusing on quadratic forms in two variables with integer coefficients. See the <a href="TN/TNpage.html">webpage for the book</a> for more information or to download an electronic version of the book. A print version has been published by the American Math Society in 2022, but the electronic version will remain freely available here.  </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</p>
 
-        /* responsive: on small screens, stack card image */
-        @media (max-width: 650px) {
-            .project-card {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .header-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-            .header-image {
-                margin-top: 15px;
-            }
-        }
-    </style>
-</head>
-<body>
-<div class="page">
+<h3><a name="papers"></a></h3>
 
-    <!-- ##### HEADER ##### -->
-    <div class="header-outer">
-        <div class="header-inner">
-            <div class="header-text">
-                <h1>H-CN</h1>
-                <h3><i class="fas fa-envelope" style="color: #680530;"></i>  chenchenggong2024@buaa.edu.cn  |  <i class="fas fa-map-marker-alt" style="color: #680530;"></i>  Beihang University, School of Mathematical Sciences</h3>
-                <div class="email-note">
-                    <i class="fas fa-pencil-alt"></i>  Note: I am currently active in research and open to collaboration. 
-                    The best way to reach me is via email. If I do not respond quickly, I am probably absorbed in a problem.
-                </div>
-            </div>
-            <div class="header-image">
-                <!-- replace with your own photo or keep as placeholder -->
-                <div class="photo-placeholder">
-                    <i class="fas fa-user-graduate fa-3x"></i>
-                </div>
-                <!-- if you have an image: <img src="yourphoto.jpg" alt="your name"> -->
-            </div>
-        </div>
-    </div>
+<table border="1" bordercolor="#680530" cellpadding="3" cellspacing="1" height="26" width="100%">
 
-<!-- ========== 目录导航（类似 Hatcher 风格） ========== -->
-<div style="background-color: #c8bdff; border-bottom: 2px solid #680530; padding: 12px 20px; display: flex; flex-direction: column; gap: 10px; font-family: 'Times New Roman', Times, serif;">
-    
-    <!-- 第一行：书籍项目 -->
-    <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
-        <span style="font-weight: bold; font-size: 1.3rem; width: 160px; flex-shrink: 0; color: #000;">Book Projects:</span>
-        <span style="flex: 1;">
-            <a href="#project-algtop" style="margin-right: 20px; color: #be0e14; text-decoration: none;">Algebraic Topology</a>
-            <a href="#project-vbkt" style="margin-right: 20px; color: #be0e14; text-decoration: none;">Vector Bundles & K-Theory</a>
-            <a href="#project-ss" style="margin-right: 20px; color: #be0e14; text-decoration: none;">Spectral Sequences</a>
-            <a href="#project-ton" style="color: #be0e14; text-decoration: none;">Topology of Numbers</a>
-        </span>
-    </div>
-    
-    <!-- 第二行：课程笔记 -->
-    <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
-        <span style="font-weight: bold; font-size: 1.3rem; width: 160px; flex-shrink: 0; color: #000;">Course Notes:</span>
-        <span style="flex: 1;">
-            <a href="#course-3mf" style="margin-right: 20px; color: #be0e14; text-decoration: none;">Basic 3-Manifold Topology</a>
-            <a href="#course-pt" style="color: #be0e14; text-decoration: none;">Point-Set Topology</a>
-        </span>
-    </div>
-    
-    <!-- 第三行：论文（单独一行，跨列） -->
-    <div style="font-weight: bold; font-size: 1.3rem; padding: 2px 0; color: #000; border-top: 1px dashed #680530; border-bottom: 1px dashed #680530; margin: 4px 0;">
-        <a href="#papers-section" style="color: #be0e14; text-decoration: none;">Papers</a>
-    </div>
-    
-    <!-- 第四行：其他资源 -->
-    <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
-        <span style="font-weight: bold; font-size: 1.3rem; width: 160px; flex-shrink: 0; color: #000;">Other Things:</span>
-        <span style="flex: 1;">
-            <a href="#stable-pics" style="margin-right: 20px; color: #be0e14; text-decoration: none;">Stable homotopy pictures</a>
-            <a href="#so-cohom" style="margin-right: 20px; color: #be0e14; text-decoration: none;">Cohomology of SO(n)</a>
-            <a href="#booklist" style="color: #be0e14; text-decoration: none;">Book list</a>
-        </span>
-    </div>
-    
-    <!-- 第五行：演讲（可选） -->
-    <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
-        <span style="font-weight: bold; font-size: 1.3rem; width: 160px; flex-shrink: 0; color: #000;">Talks:</span>
-        <span style="flex: 1;">
-            <a href="#talk-madsen" style="margin-right: 20px; color: #be0e14; text-decoration: none;">Madsen-Weiss scanning</a>
-            <a href="#talk-survey" style="color: #be0e14; text-decoration: none;">3-manifold survey</a>
-        </span>
-    </div>
-</div>
-<!-- ========== 目录结束 ========== -->
+  <tbody>
+    <tr>
+      <td bgcolor="#8490d1" height="27" width="100%"><b><font size="+2">Papers</font></b></td>
+    </tr>
+  </tbody>
+</table>
 
-    
-    <!-- ##### BOOKS / PROJECTS SECTION (like Hatcher's "Book Projects") ##### -->
-    <div class="section">
-        <div class="section-title" id="projects">
-            <i class="fas fa-book-open" style="margin-right: 10px;"></i> Projects / Books
-        </div>
-        <div class="section-content">
+<dl>
 
-            <!-- project card 1 -->
-           
+  <dt><a href="Papers/publist.html"><strong>List of Published Papers</strong></a></dt>
+</dl>
 
-            <!-- project card 2 -->
-           
-            <!-- project card 3 – in progress -->
-            <div class="project-card">
-                <div class="card-image">
-                    <i class="fas fa-pen-fancy fa-3x"></i>
-                </div>
-                <div class="card-text">
-                    <h3>In Preparation: Monograph</h3>
-                    <p>This unfinished draft covers advanced topics. A preliminary version is available 
-                    here, but beware that it's incomplete. <a href="#">Download draft (PDF) →</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
+<p><strong>Preprints:</strong></p>
 
-    <!-- ##### COURSE NOTES / LECTURES ##### -->
-    <div class="section">
-        <div class="section-title" id="courses">
-            <i class="fas fa-chalkboard-teacher"></i> Course Notes
-        </div>
-        <div class="section-content">
-            <ul class="paper-list">
-                <li><a href="#">Advanced Topics in Topology</a> <span class="paper-detail">(Spring 2025, lecture notes, 150 pages)</span></li>
-                <li><a href="#">Introduction to Algebraic Topology</a> <span class="paper-detail">(exercises and solutions, updated 2024)</span></li>
-                <li><a href="#">Point‑Set Topology: A Concise Approach</a> <span class="paper-detail">(course notes for undergraduates)</span></li>
-            </ul>
-        </div>
-    </div>
+<ul><li>"Moduli spaces of circle packings" (with William Thurston). <a href="Papers/CirclePacking.pdf">pdf file</a> (14 pages) posted March 2018. This is a partial write-up of a project that Bill and I worked on in 2008. The paper contains two theorems, but the proof of one of them is not complete. The remaining details could have been easily filled in by Bill, and my hope is that someone else will be able to do this now.</li>
+  <li>"The Kirby torus trick for surfaces". <a href="Papers/TorusTrick.pdf">pdf file</a> (10 pages) posted January 2014 with small revisions in 2022. This is an expository account of two classical theorems in surface topology:  Topological surfaces have unique smooth structures, and homeomorphisms of smooth surfaces are isotopic to diffeomorphisms. With the torus trick, almost no point-set topology is needed for the proofs.</li>
+  <li>"A short exposition of the Madsen-Weiss theorem". <a href="Papers/MW.pdf">pdf file</a> (43
+    pages). This version posted February 2014. Appendices have been added giving the calculation of the stable rational homology, a proof of the Group Completion Theorem, and the Cerf-Gramain proof that the diffeomorphism groups of most surfaces have contractible components. </li>
+    <li>"Simplifying and separating configurations of disjoint unlinked spheres in Euclidean space". <a href="Papers/SphereConfig.pdf">pdf file</a> posted in April 2022.
+</ul>
 
-    <!-- ##### PAPERS / PREPRINTS ##### -->
-    <div class="section">
-        <div class="section-title" id="papers">
-            <i class="fas fa-file-alt"></i> Papers & Preprints
-        </div>
-        <div class="section-content">
+<p><strong>Papers published since 1996:</strong></p>
 
-            <h3 style="margin-bottom: 10px; font-size: 1.6rem; border-left: 6px solid var(--border-deep); padding-left: 12px;">Preprints</h3>
-            <ul class="paper-list">
-                <li><a href="#">nothing yet</a> (with Firedman Collaborator). <span class="paper-detail">Blank yet.</span></li>
-            </ul>
+<ul>
+  
+  <li>"Tethers and homology stability for surfaces" (with Karen Vogtmann). Alg. &amp; Geom. Topology 17 (2017), 1871-1916. <a href="Papers/Tethers.pdf">pdf file</a>. </li>
+  <li>"Assembling homology classes in automorphism groups of free groups" (with Jim Conant, Martin Kassabov, and Karen Vogtmann). Commentarii Math. Helv. 91 (2016), 751-806. <a href="Papers/CHKV.pdf">pdf file</a>. </li>
+  <li>"Configuration spaces of rings and wickets" (with Tara Brendle). Commentarii Math. Helv. 88 (2013), 131-162. <a href="Papers/wickets.pdf">pdf file</a><br>
+  </li>
+  <li>"Generating the Torelli group" (with Dan Margalit).
+l'Enseignement Math. 58 (2012), 165-188. <a href="Papers/Torelli.pdf">pdf
+file</a> </li>
 
-            <h3 style="margin: 25px 0 10px; font-size: 1.6rem; border-left: 6px solid var(--border-deep); padding-left: 12px;">Published </h3>
-            <ul class="paper-list">
-                <li><a href="#">Nothing at all yet</a> (with F. Student). <span class="paper-detail">Blank yet.</span></li>
-            </ul>
+  <li>"Stabilization for mapping class groups of 3-manifolds" (with
+Nathalie Wahl). Duke Math. J. 155 (2010), 205-269. Here is a <a href="Papers/HW2.pdf">pdf file</a> of the version from October 2009
+which is in some ways preferable to the published version.</li>
+  <li>"Stabilization for the automorphisms of free groups with
+boundaries" (with Nathalie Wahl). Geometry and Topology 9 (2005),
+1295-1336. <a href="Papers/HW1.pdf">pdf file</a>. See also the short <a href="Papers/HW1Erratum.pdf">Erratum</a> that refers to our second
+paper (listed above) for details. </li>
+  <li>"Homology stability for outer automorphism groups of free groups"
+(with Karen Vogtmann). Alg. &amp; Geom. Topology 4 (2004), 1253-1272. <a href="Papers/HomStabOutFn.pdf">pdf file</a>. There is a correction:
+<ul>
+  <li>"Erratum to: Homology stability for outer automorphism groups of
+free groups" (with Karen Vogtmann and Nathalie Wahl). Alg. &amp; Geom.
+Topology 6 (2006), 573-579. <a href="Papers/AGTcorrection.pdf">pdf file</a></li>
+</ul>
+  </li>
+  <li>"Pants decompositions of surfaces" <a href="Papers/pantsdecomp.pdf">pdf file</a>. This is a 12-page excerpt
+from a joint paper with Pierre Lochak and Leila Schneps,"On the
+Teichmuller Tower of Mapping Class Groups," J. reine angew. Math. 521
+(2000), 1-24. </li>
+  <li>"Rational homology of Aut(F_n)" (with Karen Vogtmann), Math
+Research Letters 5 (1998), 759-780. <a href="Papers/rational.pdf"> pdf
+file</a> </li>
+  <li>"The complex of free factors of a free group" (with Karen
+Vogtmann), Oxford Quarterly 49 (1998), 459-468. Here is a <a href="Papers/FCn.pdf">corrected version</a> posted in March 2022.</li>
+  <li>"Cerf theory for graphs" (with Karen Vogtmann), J. London Math
+Soc. 58 (1998), 633-655. <a href="Papers/Cerfgraph.pdf">pdf file</a> There is also a short <a href="Papers/CerfgraphAddendum.pdf">Addendum</a> written in 2018 clarifying the proof of Proposition 6.2.</li>
+  <li>"Finiteness of classifying spaces of relative diffeomorphism
+groups of 3-manifolds" (with Darryl McCullough), Geometry and Topology
+1 (1997), 91-109. <a href="Papers/bdiffrel.pdf">pdf file</a> </li>
+  <li>"Isoperimetric inequalities for automorphism groups of free
+groups" (with Karen Vogtmann), Pacific J. Math. 173 (1996), 425-441. <a href="Papers/isoineq.pdf">pdf file</a> </li>
+</ul>
 
-            
-        </div>
-    </div>
+<p><strong>Updates of older papers:</strong></p>
 
-    <!-- ##### OTHER THINGS (talks, photos, etc.) ##### -->
-    <div class="section">
-        <div class="section-title" id="other">
-            <i class="fas fa-ellipsis-h"></i> Other Things
-        </div>
-        <div class="section-content">
-            <div class="two-col">
-                <ul>
-                    <li><i class="fas fa-chart-line"></i> <a href="#">Slides: Stable homology of mapping class groups</a> (Conference 2024)</li>
-                    <li><i class="fas fa-chart-pie"></i> <a href="#">Poster: Cohomology of SO(n) – visualised</a> (PDF)</li>
-                    <li><i class="fas fa-camera"></i> <a href="#">Photos from the 2023 Topology Festival</a></li>
-                </ul>
-                <ul>
-                    <li><i class="fas fa-list"></i> <a href="#">Recommended books in topology (updated 2025)</a></li>
-                    <li><i class="fas fa-tools"></i> <a href="#">Useful scripts and data files</a></li>
-                    <li><i class="fab fa-github"></i> <a href="#">GitHub @yourusername</a></li>
-                </ul>
-            </div>
+<ul>
 
-            <!-- a small extra block like Hatcher's "Pictures of stable homotopy groups of spheres" -->
-            <div style="background-color: var(--card-bg); border: 2px solid var(--border-deep); padding: 15px; margin-top: 20px;">
-                <i class="fas fa-image" style="margin-right: 8px;"></i> <strong><a href="#" style="font-size: 1.2rem;">Pictures of stable homotopy groups of spheres</a></strong> – a visualisation project.
-            </div>
-        </div>
-    </div>
+  <li>"Spaces of incompressible surfaces". This is an improved version
+of a paper published in Topology in 1976 with the title:
+"Homeomorphisms of sufficiently large P^2-irreducible 3-manifolds". <a href="Papers/emb.pdf">pdf file</a> (10 pages) </li>
+  <li>"Triangulations of surfaces". The original version of this was
+published in Topology and its Applications in 1991. <a href="Papers/TriangSurf.pdf">pdf file</a> (7 pages).</li>
+  <li>"On the diffeomorphism group of S^1 x S^2". This is a revision,
+written in 2003, of a paper originally published in the AMS Proceedings
+in 1981. <a href="Papers/newDiffS1xS2.pdf">pdf file</a> (6 pages).</li>
+  <li>"Boundary curves of incompressible surfaces". A rewritten version
+of a paper originally published in 1982 in the Pacific Journal. <a href="Papers/bdyslopes.pdf">pdf file</a> (5 pages).</li>
+</ul>
 
-    <!-- ##### SLIDES / TALKS (optional extra) ##### -->
-    <div class="section">
-        <div class="section-title" id="talks">
-            <i class="fas fa-presentation"></i> Recent Talks
-        </div>
-        <div class="section-content">
-            <ul class="paper-list">
-                <!--
-                <li><a href="#">“Madsen‑Weiss via scanning”</a> – Luminy, June 2024 (slides)</li>
-                <li><a href="#">“A survey of 3‑manifold classification”</a> – Cornell Topology Festival 2023 (video & slides)</li>
-                <li><a href="#">“Diffeomorphism groups after 50 years”</a> – 60th Birthday Conference for Someone, 2025</li>
-                -->
-            </ul>
-        </div>
-    </div>
+<p><strong>Unfinished drafts:</strong></p>
+<ul>
 
-    <!-- ##### FOOTER with extra links (like photos of Renwick Brook) ##### -->
-    <div class="footer-note">
-       <!-- <i class="fas fa-tree"></i> <a href="#">Personal photo gallery</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-        <i class="fas fa-rss"></i> <a href="#">RSS feed</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-        <i class="fas fa-envelope"></i> <a href="#">email</a>  
-        <br> -->
-        <span style="font-size: 0.9rem; opacity: 0.7;">Template styled after Allen Hatcher's homepage. Last updated February 2026.</span>
-    </div>
+  <li>"Diffeomorphism groups of reducible 3-manifolds". This is an
+incomplete draft, lacking some proofs, posted in August 2008, replacing
+an older version from about 10 years earlier. <a href="Papers/DR3M.pdf">pdf
+file</a> (10 pages) </li>
+  <li>"Topological moduli spaces of knots". This is also unfinished,
+but the aim is to describe the homotopy types of the components of the
+space of all knots in the 3-sphere. <a href="Papers/knotspaces.pdf">pdf
+file</a> (12 pages) This version posted October, 2002. </li>
+  <li>"Measured lamination spaces for 3-manifolds". An unfinished draft
+of a paper written in the late 1980's, now converted into TeX and
+mildly edited, but with the same mathematical content as the old paper.
+    <a href="Papers/ML.pdf">pdf file</a> (36 pages) </li>
+</ul>
 
-</div> <!-- .page -->
-</body>
-</html>
+<p><strong>Unpublished papers:</strong></p>
+
+<ul>
+
+  <li>"The cyclic cycle complex of a surface". <a href="Papers/cycles.pdf">pdf file</a> (January 2008, 7 pages). This
+has been largely superseded by section 2 of the paper "Generating the
+Torelli group" with Dan Margalit listed above, which gives an
+exposition of the construction of Bestvina-Bux-Margalit that was the
+inspiration for "the cyclic cycle complex". Later I realized that the
+cell complex constructed by BBM has a canonical triangulation which
+makes it a subcomplex of the cyclic cycle complex, so for most purposes
+it is probably better to use the smaller BBM complex.</li>
+  <li>"Bianchi orbifolds of small discriminant" <a href="Papers/Bianchi.pdf">pdf file</a> (6 pages). This is a brief
+report I wrote in 1983 but never published. Here are some <a href="bianchi.html"><b>Pictures of Bianchi orbifolds</b></a>.</li>
+  <li>"Curves on the 4-punctured sphere: 31 Charts" (with Bill Floyd).
+This is an unpublished paper from around 1980 that you can download as
+a  <a href="Papers/31charts/31Charts.pdf">pdf file</a>
+(3.8MB) that was made by scanning the original typescript. You can also
+view it onscreen <a href="Papers/31charts/thirtyone.html">here</a>. </li>
+</ul>
+
+<hr align="left">
+<p><strong>Slides of Talks:</strong></p>
+<ul>
+  <li><a href="Papers/BanffTalk.pdf">Stable homology of spaces of graphs</a>.
+    A talk at Banff in December 2012 about an analog of the Madsen-Weiss
+    theorem for certain 3-manifolds. There is also an <a href="Papers/StanfordTalk.pdf">earlier version</a> of this talk given
+    at Stanford in July 2012.</li>
+  <li><a href="Papers/Diff%28M%292012.pdf">A 50-year view of
+    diffeomorphism groups</a>. A talk at the 50th Cornell Topology Festival
+    in May 2012 sketching some highlights of what's known about the homotopy types of
+    diffeomorphism groups of smooth manifolds. A full history would of course be impossible in an hour talk.<br>
+  </li>
+  <li><strong></strong><a href="Papers/luminytalk.pdf">Stable homology
+    by scanning: Variations on a theorem of Galatius</a>. A talk at Luminy
+    in June 2010 outlining the current simplified form of the proof of
+    Galatius' theorem on the stable homology of Aut(F_n), with comments on
+    how the Madsen-Weiss theorem follows similarly, as do a couple analogs in dimension three involving handlebodies.</li>
+  <li><a href="Papers/3Msurvey.pdf">The classification of 3-manifolds
+    -- a brief survey</a>. This is a written version (11 pages) of an
+    expository talk at the 2004 Cornell Topology Festival. Also available is a pdf file of the <a href="Papers/3Mslides.pdf">transparencies</a> for the talk itself. </li>
+</ul>
+<hr align="left">
+<p><a href="Brook/index.html"><strong>Photos of Renwick Brook</strong></a>
+</p>
+
+</body></html>
