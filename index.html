@@ -286,6 +286,56 @@
         </div>
     </div>
 
+<!-- ========== 目录导航（类似 Hatcher 风格） ========== -->
+<div style="background-color: #c8bdff; border-bottom: 2px solid #680530; padding: 12px 20px; display: flex; flex-direction: column; gap: 10px; font-family: 'Times New Roman', Times, serif;">
+    
+    <!-- 第一行：书籍项目 -->
+    <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
+        <span style="font-weight: bold; font-size: 1.3rem; width: 160px; flex-shrink: 0; color: #000;">Book Projects:</span>
+        <span style="flex: 1;">
+            <a href="#project-algtop" style="margin-right: 20px; color: #be0e14; text-decoration: none;">Algebraic Topology</a>
+            <a href="#project-vbkt" style="margin-right: 20px; color: #be0e14; text-decoration: none;">Vector Bundles & K-Theory</a>
+            <a href="#project-ss" style="margin-right: 20px; color: #be0e14; text-decoration: none;">Spectral Sequences</a>
+            <a href="#project-ton" style="color: #be0e14; text-decoration: none;">Topology of Numbers</a>
+        </span>
+    </div>
+    
+    <!-- 第二行：课程笔记 -->
+    <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
+        <span style="font-weight: bold; font-size: 1.3rem; width: 160px; flex-shrink: 0; color: #000;">Course Notes:</span>
+        <span style="flex: 1;">
+            <a href="#course-3mf" style="margin-right: 20px; color: #be0e14; text-decoration: none;">Basic 3-Manifold Topology</a>
+            <a href="#course-pt" style="color: #be0e14; text-decoration: none;">Point-Set Topology</a>
+        </span>
+    </div>
+    
+    <!-- 第三行：论文（单独一行，跨列） -->
+    <div style="font-weight: bold; font-size: 1.3rem; padding: 2px 0; color: #000; border-top: 1px dashed #680530; border-bottom: 1px dashed #680530; margin: 4px 0;">
+        <a href="#papers-section" style="color: #be0e14; text-decoration: none;">Papers</a>
+    </div>
+    
+    <!-- 第四行：其他资源 -->
+    <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
+        <span style="font-weight: bold; font-size: 1.3rem; width: 160px; flex-shrink: 0; color: #000;">Other Things:</span>
+        <span style="flex: 1;">
+            <a href="#stable-pics" style="margin-right: 20px; color: #be0e14; text-decoration: none;">Stable homotopy pictures</a>
+            <a href="#so-cohom" style="margin-right: 20px; color: #be0e14; text-decoration: none;">Cohomology of SO(n)</a>
+            <a href="#booklist" style="color: #be0e14; text-decoration: none;">Book list</a>
+        </span>
+    </div>
+    
+    <!-- 第五行：演讲（可选） -->
+    <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
+        <span style="font-weight: bold; font-size: 1.3rem; width: 160px; flex-shrink: 0; color: #000;">Talks:</span>
+        <span style="flex: 1;">
+            <a href="#talk-madsen" style="margin-right: 20px; color: #be0e14; text-decoration: none;">Madsen-Weiss scanning</a>
+            <a href="#talk-survey" style="color: #be0e14; text-decoration: none;">3-manifold survey</a>
+        </span>
+    </div>
+</div>
+<!-- ========== 目录结束 ========== -->
+
+    
     <!-- ##### BOOKS / PROJECTS SECTION (like Hatcher's "Book Projects") ##### -->
     <div class="section">
         <div class="section-title" id="projects">
@@ -294,30 +344,10 @@
         <div class="section-content">
 
             <!-- project card 1 -->
-            <div class="project-card">
-                <div class="card-image">
-                    <i class="fas fa-book fa-3x"></i>
-                </div>
-                <div class="card-text">
-                    <h3>Project Title One</h3>
-                    <p>A short description of this project, perhaps a book or a long-term writing. 
-                    This is a graduate-level monograph on a fascinating topic. It can be downloaded 
-                    electronically. <a href="#">More information →</a></p>
-                </div>
-            </div>
+           
 
             <!-- project card 2 -->
-            <div class="project-card">
-                <div class="card-image">
-                    <i class="fas fa-code-branch fa-3x"></i>
-                </div>
-                <div class="card-text">
-                    <h3>Computational Tool / Library</h3>
-                    <p>Open-source software for computations in algebraic topology or related fields. 
-                    Includes documentation and examples. <a href="#">GitHub repository →</a></p>
-                </div>
-            </div>
-
+           
             <!-- project card 3 – in progress -->
             <div class="project-card">
                 <div class="card-image">
@@ -400,19 +430,21 @@
         </div>
         <div class="section-content">
             <ul class="paper-list">
+                <!--
                 <li><a href="#">“Madsen‑Weiss via scanning”</a> – Luminy, June 2024 (slides)</li>
                 <li><a href="#">“A survey of 3‑manifold classification”</a> – Cornell Topology Festival 2023 (video & slides)</li>
                 <li><a href="#">“Diffeomorphism groups after 50 years”</a> – 60th Birthday Conference for Someone, 2025</li>
+                -->
             </ul>
         </div>
     </div>
 
     <!-- ##### FOOTER with extra links (like photos of Renwick Brook) ##### -->
     <div class="footer-note">
-        <i class="fas fa-tree"></i> <a href="#">Personal photo gallery</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+       <!-- <i class="fas fa-tree"></i> <a href="#">Personal photo gallery</a> &nbsp;&nbsp;|&nbsp;&nbsp;
         <i class="fas fa-rss"></i> <a href="#">RSS feed</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-        <i class="fas fa-envelope"></i> <a href="#">email</a>
-        <br>
+        <i class="fas fa-envelope"></i> <a href="#">email</a>  
+        <br> -->
         <span style="font-size: 0.9rem; opacity: 0.7;">Template styled after Allen Hatcher's homepage. Last updated February 2026.</span>
     </div>
 
